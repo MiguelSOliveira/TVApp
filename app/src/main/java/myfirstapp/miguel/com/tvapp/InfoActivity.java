@@ -1,9 +1,7 @@
 package myfirstapp.miguel.com.tvapp;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,8 +11,6 @@ public class InfoActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info_layout);
-
-        Log.d("TAG", "tag");
 
         final ResultInfo infoObject = (ResultInfo) getIntent().getSerializableExtra("info");
         final TextView title = (TextView) findViewById(R.id.movieName);
@@ -35,5 +31,6 @@ public class InfoActivity extends AppCompatActivity {
         genre.setText(infoObject.info[5]);
         director.setText(infoObject.info[6]);
         writer.setText(infoObject.info[7]);
+        poster.setImageBitmap(Request.cover);
     }
 }

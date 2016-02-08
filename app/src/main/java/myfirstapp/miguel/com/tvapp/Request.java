@@ -2,10 +2,9 @@ package myfirstapp.miguel.com.tvapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -16,13 +15,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Request extends AsyncTask<String, Void, String> {
     private TextView textView;
     private Context context;
+    public static Bitmap cover;
 
     public Request(TextView textView, Context context) {
         this.textView = textView;
@@ -48,11 +47,27 @@ public class Request extends AsyncTask<String, Void, String> {
             JSONObject topLevel = new JSONObject(builder.toString());
             response = topLevel.toString();
 
+            cover = getBitmapFromURL(topLevel.getString("Poster"));
+
             urlConnection.disconnect();
         } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
         return response;
+    }
+
+    private Bitmap getBitmapFromURL(String urlStr) {
+        try {
+            URL url = new URL(urlStr);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            InputStream input = connection.getInputStream();
+            Bitmap myBitmap = BitmapFactory.decodeStream(input);
+            connection.disconnect();
+            return myBitmap;
+        } catch (IOException e) {
+            // Log exception
+            return null;
+        }
     }
 
     @Override
@@ -85,6 +100,5 @@ public class Request extends AsyncTask<String, Void, String> {
                     "N/A"};
             ResultInfo info = new ResultInfo(params);
         }
-
     }
 }
