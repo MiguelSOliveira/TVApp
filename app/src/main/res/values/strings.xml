@@ -1,6 +1,16 @@
 <resources>
-    <string name="app_name">You Know That Movie?</string>
+    <string name="app_name">Search That Movie</string>
     <string name="show_name">Search Movie/Show</string>
     <string name="show_me_textView">Show Me</string>
     <string name="search_btn">Search</string>
+    <string name="not_available_img">Image not Available</string>
+    <string name="type_text_view">Type</string>
+    <string name="director_text_view">Director</string>
+    <string name="writers_text_view">Writers</string>
+    <string name="runtime_text_view">Runtime</string>
+    <string name="genre_text_view">Genre</string>
+    <string name="plot_text_view">Plot</string>
+    <string name="released_text_view">Released</string>
+    <string name="stars_content_description">Stars</string>
+    <string name="year_edit_text">Year (Not Required)</string>
 </resources>

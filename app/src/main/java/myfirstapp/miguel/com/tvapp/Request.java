@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
@@ -19,12 +21,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Request extends AsyncTask<String, Void, String> {
-    private TextView textView;
     private Context context;
     public static Bitmap cover;
 
-    public Request(TextView textView, Context context) {
-        this.textView = textView;
+    public Request(Context context) {
         this.context = context;
     }
 
@@ -56,7 +56,7 @@ public class Request extends AsyncTask<String, Void, String> {
         return response;
     }
 
-    private Bitmap getBitmapFromURL(String urlStr) {
+    public static Bitmap getBitmapFromURL(String urlStr) {
         try {
             URL url = new URL(urlStr);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -65,7 +65,6 @@ public class Request extends AsyncTask<String, Void, String> {
             connection.disconnect();
             return myBitmap;
         } catch (IOException e) {
-            // Log exception
             return null;
         }
     }
@@ -85,11 +84,17 @@ public class Request extends AsyncTask<String, Void, String> {
             final String director = (String) topLevel.get("Director");
             final String writer = (String) topLevel.get("Writer");
             final String poster = (String) topLevel.get("Poster");
+            final String type = (String) topLevel.get("Type");
+            final String votes = (String) topLevel.get("imdbVotes");
+            final String awards = (String) topLevel.get("Awards");
+
+            if(poster.equals("N/A"))
+                changeCover(R.drawable.noimage);
 
             String params[] = new String[]{title, plot, rating, released, runTime, genre,
-                director, writer, poster};
-            ResultInfo info = new ResultInfo(params);
+                director, writer, poster, type, votes, awards};
 
+            ResultInfo info = new ResultInfo(params);
             Intent intent = new Intent(context, InfoActivity.class);
             intent.putExtra("info", info);
             context.startActivity(intent);
@@ -97,8 +102,19 @@ public class Request extends AsyncTask<String, Void, String> {
 
         } catch(JSONException e){
             String params[] = new String[]{"N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A",
-                    "N/A"};
+                    "N/A", "N/A", "N/A", "N/A"};
+
+            changeCover(R.drawable.noimage);
+
             ResultInfo info = new ResultInfo(params);
+            Intent intent = new Intent(context, InfoActivity.class);
+            intent.putExtra("info", info);
+            context.startActivity(intent);
         }
+    }
+
+    private void changeCover(int noimage) {
+        Drawable myDrawable = context.getResources().getDrawable(R.drawable.noimage);
+        cover = ((BitmapDrawable) myDrawable).getBitmap();
     }
 }

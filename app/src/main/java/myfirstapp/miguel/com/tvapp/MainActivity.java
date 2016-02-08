@@ -1,9 +1,13 @@
 package myfirstapp.miguel.com.tvapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,16 +17,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView showName = (TextView) findViewById(R.id.showName);
+        final EditText showName = (EditText) findViewById(R.id.showName);
         final Button searchButton = (Button) findViewById(R.id.searchBtn);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String name = showName.getText().toString().replace(" ", "+");
-                String url = "http://www.omdbapi.com/?t=" + name + "&y=2011&plot=full&r=json";
-                new Request(showName, MainActivity.this).execute(url);
+//                String name = showName.getText().toString().replace(" ", "+");
+//                String url = "http://www.omdbapi.com/?t=" + name + "&y=&plot=full&r=json";
+//                new Request(showName, MainActivity.this).execute(url);
+
+                String searchUrl = "http://www.omdbapi.com/?s=" + showName.getText().toString().trim().replaceAll(" ", "+");
+                Log.d("Search", searchUrl);
+                Intent intent = new Intent(MainActivity.this, SearchResults.class);
+                intent.putExtra("url", searchUrl);
+                startActivity(intent);
             }
         });
 

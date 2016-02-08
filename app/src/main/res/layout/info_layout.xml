@@ -1,94 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/poster"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/movieName"
-        android:layout_below="@+id/poster"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:paddingTop="20dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/rating"
-        android:layout_below="@+id/movieName"
-        android:layout_toLeftOf="@+id/movieName"
-        android:layout_toStartOf="@+id/movieName" />
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/got"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:contentDescription="@string/not_available_img"
+                    android:id="@+id/poster"
+                    android:scaleType="fitXY"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/released"
-        android:layout_below="@+id/rating"
-        android:layout_alignLeft="@+id/rating"
-        android:layout_alignStart="@+id/rating"
-        android:layout_marginTop="37dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingRight="20dp"
+                    android:textAlignment="center"
+                    android:paddingEnd="20dp"
+                    android:layout_toRightOf="@+id/poster"
+                    android:layout_toEndOf="@+id/poster"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    tools:text="Game Of Thrones"
+                    android:id="@+id/movieName" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/genre"
-        android:layout_below="@+id/movieName"
-        android:layout_alignLeft="@+id/director"
-        android:layout_alignStart="@+id/director" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="20dp"
+                    android:textSize="40sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/poster"
+                    android:layout_toEndOf="@+id/poster"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    tools:text="9.5"
+                    android:id="@+id/rating"
+                    android:layout_marginTop="75dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/director"
-        android:layout_alignTop="@+id/released"
-        android:layout_toRightOf="@+id/movieName"
-        android:layout_toEndOf="@+id/movieName" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/poster"
+                    android:layout_toEndOf="@+id/poster"
+                    android:paddingStart="20dp"
+                    android:paddingLeft="20dp"
+                    android:textAlignment="center"
+                    android:textSize="15sp"
+                    android:paddingEnd="20dp"
+                    android:id="@+id/votes"
+                    android:paddingRight="20dp"
+                    tools:text="908.392"
+                    android:layout_marginTop="125dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/writer"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/released"
-        android:layout_alignStart="@+id/released" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/star"
+                    android:layout_toEndOf="@+id/star"
+                    android:paddingStart="20dp"
+                    android:paddingLeft="20dp"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:paddingEnd="20dp"
+                    android:textAlignment="center"
+                    android:paddingRight="20dp"
+                    android:text="@string/type_text_view"
+                    android:layout_marginTop="75dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/runTime"
-        android:layout_alignBottom="@+id/writer"
-        android:layout_toRightOf="@+id/poster"
-        android:layout_toEndOf="@+id/poster" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/star"
+                    android:layout_toEndOf="@+id/star"
+                    android:textAlignment="center"
+                    android:paddingStart="20dp"
+                    android:paddingLeft="20dp"
+                    android:textSize="15sp"
+                    android:paddingEnd="20dp"
+                    android:id="@+id/type"
+                    android:paddingRight="20dp"
+                    android:layout_marginTop="125dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/plot"
-        android:layout_below="@+id/writer"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="89dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/poster"
+                    android:layout_toEndOf="@+id/poster"
+                    android:textAlignment="center"
+                    android:paddingStart="20dp"
+                    android:paddingLeft="20dp"
+                    android:textSize="15sp"
+                    android:paddingEnd="20dp"
+                    android:id="@+id/awards"
+                    android:paddingRight="20dp"
+                    android:layout_marginTop="165dp"/>
 
-</RelativeLayout>
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:contentDescription="@string/stars_content_description"
+                    android:scaleType="fitXY"
+                    android:id="@+id/star"
+                    android:layout_toRightOf="@+id/rating"
+                    android:layout_toEndOf="@+id/rating"
+                    android:src="@android:drawable/btn_star_big_on"
+                    android:layout_marginTop="75dp"/>
+
+            </RelativeLayout>
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/director_text_view"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="20sp"
+                android:paddingLeft="35dp"
+                android:paddingStart="35dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:id="@+id/director"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/writers_text_view"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="20sp"
+                android:paddingLeft="35dp"
+                android:paddingStart="35dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:id="@+id/writers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/runtime_text_view"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="20sp"
+                android:paddingLeft="35dp"
+                android:paddingStart="35dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:id="@+id/runTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/released_text_view"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="20sp"
+                android:paddingLeft="35dp"
+                android:paddingStart="35dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:id="@+id/released"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/genre_text_view"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="20sp"
+                android:paddingLeft="35dp"
+                android:paddingStart="35dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:id="@+id/genre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/plot_text_view"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="20sp"
+                android:paddingLeft="35dp"
+                android:paddingStart="35dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:id="@+id/plot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+</ScrollView>

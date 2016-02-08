@@ -14,15 +14,18 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.info_layout);
 
         final ResultInfo infoObject = (ResultInfo) getIntent().getSerializableExtra("info");
-        final TextView title = (TextView) findViewById(R.id.movieName);
-        final TextView plot = (TextView) findViewById(R.id.plot);
-        final TextView director = (TextView) findViewById(R.id.director);
-        final TextView genre = (TextView) findViewById(R.id.genre);
-        final TextView rating = (TextView) findViewById(R.id.rating);
-        final TextView released = (TextView) findViewById(R.id.released);
-        final TextView writer = (TextView) findViewById(R.id.writer);
-        final TextView runTime = (TextView) findViewById(R.id.runTime);
-        final ImageView poster = (ImageView) findViewById(R.id.poster);
+        final TextView title        = (TextView) findViewById(R.id.movieName);
+        final TextView plot         = (TextView) findViewById(R.id.plot);
+        final TextView director     = (TextView) findViewById(R.id.director);
+        final TextView genre        = (TextView) findViewById(R.id.genre);
+        final TextView rating       = (TextView) findViewById(R.id.rating);
+        final TextView released     = (TextView) findViewById(R.id.released);
+        final TextView writer       = (TextView) findViewById(R.id.writers);
+        final TextView runTime      = (TextView) findViewById(R.id.runTime);
+        final ImageView poster      = (ImageView) findViewById(R.id.poster);
+        final TextView votes        = (TextView) findViewById(R.id.votes);
+        final TextView type        = (TextView) findViewById(R.id.type);
+        final TextView awards        = (TextView) findViewById(R.id.awards);
 
         plot.setMovementMethod(new ScrollingMovementMethod());
 
@@ -34,6 +37,9 @@ public class InfoActivity extends AppCompatActivity {
         genre.setText(infoObject.info[5]);
         director.setText(infoObject.info[6]);
         writer.setText(infoObject.info[7]);
+        type.setText(infoObject.info[9]);
+        votes.setText(infoObject.info[10]);
+        awards.setText(infoObject.info[11]);
         poster.setImageBitmap(Request.cover);
     }
 }
