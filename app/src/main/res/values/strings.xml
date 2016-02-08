@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">You Know That Movie?</string>
+    <string name="show_name">Search Movie/Show</string>
+    <string name="show_me_textView">Show Me</string>
+    <string name="search_btn">Search</string>
+</resources>

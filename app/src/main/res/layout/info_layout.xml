@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/poster"
+        android:background="@android:drawable/zoom_plate"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/movieName"
+        android:layout_below="@+id/poster"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/rating"
+        android:layout_below="@+id/movieName"
+        android:layout_toLeftOf="@+id/movieName"
+        android:layout_toStartOf="@+id/movieName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/released"
+        android:layout_below="@+id/rating"
+        android:layout_alignLeft="@+id/rating"
+        android:layout_alignStart="@+id/rating"
+        android:layout_marginTop="37dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/genre"
+        android:layout_below="@+id/movieName"
+        android:layout_alignLeft="@+id/director"
+        android:layout_alignStart="@+id/director" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/director"
+        android:layout_alignTop="@+id/released"
+        android:layout_toRightOf="@+id/movieName"
+        android:layout_toEndOf="@+id/movieName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/writer"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/released"
+        android:layout_alignStart="@+id/released" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/runTime"
+        android:layout_alignBottom="@+id/writer"
+        android:layout_toRightOf="@+id/poster"
+        android:layout_toEndOf="@+id/poster" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/plot"
+        android:layout_below="@+id/writer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="89dp" />
+
+</RelativeLayout>
