@@ -2,6 +2,7 @@ package myfirstapp.miguel.com.tvapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +23,8 @@ public class InfoActivity extends AppCompatActivity {
         final TextView writer = (TextView) findViewById(R.id.writer);
         final TextView runTime = (TextView) findViewById(R.id.runTime);
         final ImageView poster = (ImageView) findViewById(R.id.poster);
+
+        plot.setMovementMethod(new ScrollingMovementMethod());
 
         title.setText(infoObject.info[0]);
         plot.setText(infoObject.info[1]);
