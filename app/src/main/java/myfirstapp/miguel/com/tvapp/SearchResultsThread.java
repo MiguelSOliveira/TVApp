@@ -8,8 +8,8 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -75,7 +75,7 @@ public class SearchResultsThread extends AsyncTask<String, Void, String> {
 
             urlConnection.disconnect();
         } catch (IOException | JSONException e) {
-            e.printStackTrace();
+            return "NotFound";
         }
         return response;
     }
@@ -83,6 +83,14 @@ public class SearchResultsThread extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String temp) {
 
+        if(temp.equals("NotFound")) {
+            final TextView notFound = (TextView) activity.findViewById(R.id.not_found);
+            notFound.setVisibility(View.VISIBLE);
+            return;
+        }
+
+        final ListView results = (ListView) activity.findViewById(R.id.results);
+        results.setVisibility(View.VISIBLE);
         ResultAdapter adapter = new ResultAdapter(activity, titles, covers);
         listView.setAdapter(adapter);
 
@@ -93,7 +101,7 @@ public class SearchResultsThread extends AsyncTask<String, Void, String> {
                 item = item.replace(" ", "+");
 
                 String url = "http://www.omdbapi.com/?t=" + item + "&y=&plot=full&r=json";
-                new Request(context).execute(url);
+                new Request(context, activity).execute(url);
             }
         });
     }

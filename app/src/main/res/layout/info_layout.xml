@@ -129,6 +129,25 @@
                     android:layout_marginTop="75dp"/>
 
             </RelativeLayout>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:visibility="visible"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/episodes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/see_eps_text_view"/>
+
             <TextView
                 android:paddingTop="20dp"
                 android:textSize="25sp"
@@ -172,6 +191,29 @@
                 android:paddingRight="20dp"
                 android:paddingEnd="20dp"
                 android:id="@+id/writers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/actors_text_view"/>
+
+            <TextView
+                android:paddingTop="20dp"
+                android:textSize="20sp"
+                android:paddingLeft="35dp"
+                android:paddingStart="35dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:id="@+id/actors"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

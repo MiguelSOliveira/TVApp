@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Game"
+        android:text="Friends"
         android:hint="@string/show_name"
         android:ems="10"
         android:id="@+id/showName"

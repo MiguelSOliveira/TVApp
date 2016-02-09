@@ -13,4 +13,7 @@
     <string name="released_text_view">Released</string>
     <string name="stars_content_description">Stars</string>
     <string name="year_edit_text">Year (Not Required)</string>
+    <string name="actors_text_view">Actors</string>
+    <string name="see_eps_text_view">Episodes</string>
+    <string name="movie_not_found">I Found Nothing</string>
 </resources>

@@ -24,12 +24,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                String name = showName.getText().toString().replace(" ", "+");
-//                String url = "http://www.omdbapi.com/?t=" + name + "&y=&plot=full&r=json";
-//                new Request(showName, MainActivity.this).execute(url);
-
                 String searchUrl = "http://www.omdbapi.com/?s=" + showName.getText().toString().trim().replaceAll(" ", "+");
-                Log.d("Search", searchUrl);
                 Intent intent = new Intent(MainActivity.this, SearchResults.class);
                 intent.putExtra("url", searchUrl);
                 startActivity(intent);
