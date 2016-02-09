@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.widget.ListView;
 
 import org.json.JSONException;
@@ -20,18 +19,9 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class SearchSeasonsThread extends AsyncTask<String, Void, Void> {
-    private final ListView listView;
-    private final Context context;
-    private final Activity activity;
     private final ArrayList<String> titles = new ArrayList<>();
     private final ArrayList<Bitmap> covers = new ArrayList<>();
     public static int SEASONS;
-
-    public SearchSeasonsThread(ListView listView, Context context, Activity activity) {
-        this.listView = listView;
-        this.context = context;
-        this.activity = activity;
-    }
 
     @Override
     protected Void doInBackground(String... strings) {

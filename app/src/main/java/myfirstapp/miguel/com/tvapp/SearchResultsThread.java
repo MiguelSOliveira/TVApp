@@ -39,7 +39,7 @@ public class SearchResultsThread extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... strings) {
-        String response = "UNDEFINED";
+        String response;
         try {
             URL url = new URL(strings[0]);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -101,7 +101,7 @@ public class SearchResultsThread extends AsyncTask<String, Void, String> {
                 item = item.replace(" ", "+");
 
                 String url = "http://www.omdbapi.com/?t=" + item + "&y=&plot=full&r=json";
-                new Request(context, activity).execute(url);
+                new Request(context).execute(url);
             }
         });
     }

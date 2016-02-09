@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -48,9 +47,8 @@ public class InfoActivity extends AppCompatActivity {
         if(infoObject.info[9].equals("series")) {
             episodes.setVisibility(View.VISIBLE);
 
-            final ListView results = (ListView) findViewById(R.id.results);
             final String url = "http://www.omdbapi.com/?t=" + infoObject.info[0].trim().replace(" ", "+");
-            new SearchSeasonsThread(results, this, InfoActivity.this).execute(url);
+            new SearchSeasonsThread().execute(url);
 
             episodes.setOnClickListener(new View.OnClickListener() {
                 @Override

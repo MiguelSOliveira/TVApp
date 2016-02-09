@@ -8,8 +8,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.view.View;
-import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,12 +22,10 @@ import java.net.URL;
 
 public class Request extends AsyncTask<String, Void, String> {
     private Context context;
-    private Activity activity;
     public static Bitmap cover;
 
-    public Request(Context context, Activity activity) {
+    public Request(Context context) {
         this.context = context;
-        this.activity = activity;
     }
 
     @Override
