@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String searchUrl = "http://www.omdbapi.com/?s=" + showName.getText().toString().trim().replaceAll(" ", "+");
+                Log.d("URL", searchUrl);
                 Intent intent = new Intent(MainActivity.this, SearchResults.class);
                 intent.putExtra("url", searchUrl);
                 startActivity(intent);

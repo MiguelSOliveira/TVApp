@@ -1,10 +1,6 @@
 package myfirstapp.miguel.com.tvapp;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Bitmap;
 import android.os.AsyncTask;
-import android.widget.ListView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,11 +12,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
 public class SearchSeasonsThread extends AsyncTask<String, Void, Void> {
-    private final ArrayList<String> titles = new ArrayList<>();
-    private final ArrayList<Bitmap> covers = new ArrayList<>();
     public static int SEASONS;
 
     @Override
@@ -28,7 +21,8 @@ public class SearchSeasonsThread extends AsyncTask<String, Void, Void> {
         int seasonNumber = 1;
         while(true) {
             try {
-                URL url = new URL(strings[0] + "&Season=" + seasonNumber++);
+                URL url = new URL(strings[0] + "&Season=" + seasonNumber);
+                seasonNumber += 5;
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
                 InputStream stream = new BufferedInputStream(urlConnection.getInputStream());
@@ -40,15 +34,17 @@ public class SearchSeasonsThread extends AsyncTask<String, Void, Void> {
                     builder.append(inputString);
                 }
 
+                urlConnection.disconnect();
                 JSONObject topLevel = new JSONObject(builder.toString());
                 topLevel.getString("Title");
 
-                urlConnection.disconnect();
-            } catch (IOException | JSONException e) {
                 SEASONS = seasonNumber-2;
                 InfoActivity.setFinished();
-                return null;
+                break;
+            } catch (IOException | JSONException e) {
+                seasonNumber--;
             }
         }
+        return null;
     }
 }

@@ -85,12 +85,11 @@ public class SearchResultsThread extends AsyncTask<String, Void, String> {
 
         if(temp.equals("NotFound")) {
             final TextView notFound = (TextView) activity.findViewById(R.id.not_found);
+            listView.setVisibility(View.GONE);
             notFound.setVisibility(View.VISIBLE);
             return;
         }
 
-        final ListView results = (ListView) activity.findViewById(R.id.results);
-        results.setVisibility(View.VISIBLE);
         ResultAdapter adapter = new ResultAdapter(activity, titles, covers);
         listView.setAdapter(adapter);
 
